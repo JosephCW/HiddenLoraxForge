@@ -14,26 +14,27 @@ public class HiddenLoraxMod {
 	public static final String modId = "hiddenlorax";
 	public static final String name = "Hidden Lorax";
 	public static final String version = "0.0.1";
-
+	
 	@Mod.Instance(modId)
 	public static HiddenLoraxMod instance;
 
-	@SidedProxy(serverSide="net.josephwatts.hiddenloraxforge.proxy.CommonProxy", clientSide="net.josephwatts.hiddenloraxforge.proxy.ClientProxy")
+	@SidedProxy(serverSide="com.josephcw.hiddenloraxforge.proxy.CommonProxy", clientSide="com.josephcw.hiddenloraxforge.proxy.ClientProxy")
 	public static CommonProxy proxy;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(name + " is loading!");
+		proxy.preInit(event);
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		
+		proxy.init(event);
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-
+		proxy.postInit(event);
 	}
 	
 }
