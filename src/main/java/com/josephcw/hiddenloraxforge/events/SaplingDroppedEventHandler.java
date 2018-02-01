@@ -51,10 +51,7 @@ public class SaplingDroppedEventHandler {
 		// get the block and its name
 		Block blockOn = eventWorld.getBlockState(onePosUnder).getBlock();
 		String blockOnRegName = blockOn.getRegistryName().toString();
-		if (blockOnRegName.equals("minecraft:grass") 
-				|| blockOnRegName.equals("minecraft:dirt")) {
-			return true;
-		}
-		return false;
+		return (blockOnRegName.equals("minecraft:grass") 
+				|| blockOnRegName.equals("minecraft:dirt"));
 	}
 }
