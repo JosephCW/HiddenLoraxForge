@@ -3,6 +3,7 @@ package com.josephcw.hiddenloraxforge.events;
 import java.util.HashSet;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
@@ -25,7 +26,7 @@ public class SaplingDroppedEventHandler {
 		Item singleItem = itemStack.getItem();
 		if (isAllowedItem(singleItem)) {
 			if (isPlantableLocation(itemStack, e)) {
-				//plantItem(singleItem);
+				plantItem(itemStack, e);
 			}
 		}
 	}
@@ -53,5 +54,13 @@ public class SaplingDroppedEventHandler {
 		String blockOnRegName = blockOn.getRegistryName().toString();
 		return (blockOnRegName.equals("minecraft:grass") 
 				|| blockOnRegName.equals("minecraft:dirt"));
+	}
+	
+	private static void plantItem(ItemStack itemStack, ItemExpireEvent e) {
+		World eventWorld = e.getEntity().getEntityWorld();
+		BlockPos itemPosition = e.getEntity().getPosition();
+		// deprecated and needs to be updated.
+		IBlockState blockState = Block.getBlockFromItem(itemStack.getItem()).getStateFromMeta(itemStack.getMetadata());
+		eventWorld.setBlockState(itemPosition, blockState);
 	}
 }
