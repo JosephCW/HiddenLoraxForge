@@ -59,8 +59,10 @@ public class SaplingDroppedEventHandler {
 	private static void plantItem(ItemStack itemStack, ItemExpireEvent e) {
 		World eventWorld = e.getEntity().getEntityWorld();
 		BlockPos itemPosition = e.getEntity().getPosition();
-		// deprecated and needs to be updated.
-		IBlockState blockState = Block.getBlockFromItem(itemStack.getItem()).getStateFromMeta(itemStack.getMetadata());
+		// Get the block that we will replace the expring item with
+		Block replaceBlock = Block.getBlockFromItem(itemStack.getItem());
+		// Get the metadata of the item, apply it to the block.
+		IBlockState blockState = replaceBlock.getStateFromMeta(itemStack.getMetadata());
 		eventWorld.setBlockState(itemPosition, blockState);
 	}
 }

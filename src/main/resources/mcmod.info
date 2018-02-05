@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "hiddenloarx",
+  "name": "Hidden Lorax",
+  "description": "Simple mod that takes expiring saplings and tries to plant them.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/JosephCW/HiddenLoraxForge",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["JosephCW"],
+  "credits": "Based on my HiddenLorax bukkit mod, which was based on the Reforestation bukkit mod.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
